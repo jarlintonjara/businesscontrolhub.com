@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiénes Somos - Business Control Hub</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts: Montserrat & Open Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <style>
+        /* --- ESTILOS COMPARTIDOS --- */
+        :root {
+            --primary-teal: #008a95;
+            --dark-teal: #005f6b;
+            --vibrant-cyan: #00d2e5;
+            --gradient-teal: linear-gradient(135deg, #008a95 0%, #00bcd4 100%);
+            --gradient-dark: linear-gradient(135deg, #004d55 0%, #002b30 100%);
+            --text-dark: #2c3e50;
+            --text-light: #636e72;
+            --off-white: #f9fbfd;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--off-white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 { font-family: 'Montserrat', sans-serif; font-weight: 700; }
+
+        /* Navbar Glass */
+        .navbar {
+            padding: 15px 0;
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+        
+        .brand-logo-container { display: flex; align-items: center; text-decoration: none; gap: 10px; }
+        .brand-text {
+            font-family: 'Montserrat', sans-serif; font-weight: 700; line-height: 1.1;
+            color: var(--primary-teal); font-size: 1.2rem; text-transform: uppercase;
+        }
+        .brand-text span { color: var(--text-dark); }
+        .brand-icon { font-size: 2rem; color: var(--vibrant-cyan); }
+        
+        .nav-link {
+            color: #555 !important; font-weight: 600; font-size: 0.9rem;
+            text-transform: uppercase; letter-spacing: 0.5px; padding: 0 15px !important;
+        }
+        .nav-link:hover, .nav-link.active { color: var(--primary-teal) !important; }
+        
+        .login-btn {
+            background: var(--gradient-teal); color: white !important;
+            padding: 8px 20px !important; border-radius: 50px;
+        }
+
+        /* --- SECCIÓN 1: HERO --- */
+        .about-hero {
+            height: 70vh;
+            min-height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                        url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+            display: flex; align-items: center; justify-content: center;
+            margin-top: 76px; position: relative;
+        }
+        .hero-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            max-width: 600px;
+            border-left: 10px solid var(--vibrant-cyan);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+        .hero-card h1 { color: var(--primary-teal); font-size: 2.5rem; margin-bottom: 15px; }
+        .hero-card p { color: var(--text-light); font-size: 1.1rem; margin-bottom: 0; }
+
+        /* --- SECCIÓN 2: HISTORIA --- */
+        .about-intro {
+            padding: 100px 0;
+            background: white;
+        }
+        .intro-title {
+            color: var(--primary-teal);
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .intro-text-large {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            color: var(--text-light);
+            text-align: justify;
+        }
+
+        /* --- SECCIÓN 3: VALORES --- */
+        .values-section {
+            padding: 100px 0;
+            background-color: var(--off-white);
+        }
+        .value-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            height: 100%;
+            transition: 0.3s;
+            border-bottom: 5px solid transparent;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        .value-card:hover {
+            transform: translateY(-10px);
+            border-bottom-color: var(--vibrant-cyan);
+            box-shadow: 0 15px 40px rgba(0,138,149,0.15);
+        }
+        .value-icon { font-size: 3rem; color: var(--primary-teal); margin-bottom: 25px; }
+        .value-card h4 { margin-bottom: 10px; color: var(--dark-teal); }
+        .value-card p { color: var(--text-light); font-size: 0.95rem; }
+
+        /* --- SECCIÓN NUEVA: EQUIPO (Basado en Captura) --- */
+        .team-section {
+            padding: 100px 0;
+            background: white;
+        }
+        .team-member-card {
+            text-align: center;
+            background: var(--off-white);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: 0.4s;
+            padding-bottom: 25px;
+        }
+        .team-member-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .member-img-container {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .member-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+        .team-member-card:hover img {
+            transform: scale(1.1);
+        }
+        .member-info h4 { color: var(--primary-teal); margin-bottom: 5px; font-size: 1.25rem; }
+        .member-info span { color: var(--text-light); font-size: 0.9rem; font-weight: 600; text-transform: uppercase; }
+        .member-social {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .member-social a {
+            color: var(--primary-teal);
+            font-size: 1.1rem;
+            transition: 0.3s;
+        }
+        .member-social a:hover { color: var(--vibrant-cyan); }
+
+        /* --- SECCIÓN 4: BANNER EQUIPO --- */
+        .team-banner {
+            padding: 100px 0;
+            background: var(--gradient-dark);
+            color: white;
+            text-align: center;
+        }
+        .team-banner h2 { font-size: 2.5rem; margin-bottom: 20px; }
+        .team-banner p { font-size: 1.2rem; opacity: 0.9; max-width: 800px; margin: 0 auto 40px; }
+
+        /* --- SECCIÓN 5: CTA FINAL --- */
+        .cta-section {
+            padding: 100px 0;
+            background: white;
+            text-align: center;
+        }
+        .cta-title {
+            color: var(--primary-teal);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+        .btn-cta-big {
+            background: var(--primary-teal);
+            color: white;
+            padding: 15px 45px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(0, 138, 149, 0.3);
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-cta-big:hover {
+            background: var(--dark-teal);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 138, 149, 0.4);
+            color: white;
+        }
+        .cta-subtitle {
+            color: var(--primary-teal);
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin-top: 20px;
+            display: block;
+        }
+
+        /* Footer & Widgets */
+        footer { background: var(--gradient-dark); color: rgba(255,255,255,0.8); padding: 80px 0 30px; }
+        .footer-link { color: rgba(255,255,255,0.7); text-decoration: none; display: block; margin-bottom: 10px; transition: 0.3s; }
+        .footer-link:hover { color: var(--vibrant-cyan); padding-left: 10px; }
+
+        .wa-btn {
+            position: fixed; bottom: 20px; right: 20px;
+            width: 65px; height: 65px; background: #25d366;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            animation: pulse 2s infinite; z-index: 1000;
+        }
+        .chat-bubble {
+            position: fixed; bottom: 30px; right: 95px; left: auto;
+            background: white; padding: 8px 15px; border-radius: 50px;
+            font-size: 0.85rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            z-index: 1000; font-weight: 600; color: #333;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* Animaciones */
+        .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand brand-logo-container" href="index.html">
+                <span class="brand-text">Business <span>Control</span> Hub</span>
+                <i class="fas fa-chart-pie brand-icon"></i>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center gap-3">
+                    <li class="nav-item"><a class="nav-link" href="servicios.html">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="quienes_somos.html">Quiénes Somos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link login-btn" href="#"><i class="fas fa-user me-2"></i> Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SECCIÓN 1: HERO -->
+    <header class="about-hero">
+        <div class="container">
+            <div class="hero-card animate__animated animate__fadeInLeft">
+                <h1>Nuestra Identidad</h1>
+                <p>Somos un equipo apasionado por la eficiencia operativa y la innovación tecnológica, dedicados a empoderar empresas a través de soluciones digitales inteligentes.</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- SECCIÓN 2: HISTORIA -->
+    <section class="about-intro reveal">
+        <div class="container">
+            <h2 class="intro-title">Expertos en Transformación</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <p class="intro-text-large">
+                        En <strong>Business Control Hub</strong>, entendemos que el éxito en la era digital no se trata solo de implementar software, sino de transformar la cultura y los procesos. Nacimos con la visión de simplificar la complejidad empresarial, ofreciendo herramientas que permiten a los líderes tomar decisiones basadas en datos reales y procesos optimizados.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 3: VALORES -->
+    <section class="values-section">
+        <div class="container text-center">
+            <h2 class="mb-5" style="color: var(--primary-teal);">Nuestros Pilares</h2>
+            <div class="row g-4">
+                <div class="col-md-4 reveal">
+                    <div class="value-card">
+                        <i class="fas fa-rocket value-icon"></i>
+                        <h4>Innovación</h4>
+                        <p>Vanguardia en tecnologías Low-Code y Cloud para soluciones eficientes.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 reveal">
+                    <div class="value-card">
+                        <i class="fas fa-handshake value-icon"></i>
+                        <h4>Compromiso</h4>
+                        <p>Socios estratégicos acompañando cada etapa de su evolución.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 reveal">
+                    <div class="value-card">
+                        <i class="fas fa-shield-alt value-icon"></i>
+                        <h4>Seguridad</h4>
+                        <p>Protección absoluta de su información y veracidad de sus datos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: EQUIPO (Nueva integración según imágenes) -->
+    <section class="team-section reveal">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 style="color: var(--primary-teal);">Nuestro Equipo</h2>
+                <p class="text-muted">El talento humano que hace posible la magia tecnológica.</p>
+            </div>
+            <div class="row g-4">
+                <!-- Miembro 1 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-member-card">
+                        <div class="member-img-container">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop" alt="CEO">
+                        </div>
+                        <div class="member-info">
+                            <h4>Andrés Mendoza</h4>
+                            <span>CEO & Fundador</span>
+                            <div class="member-social">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Miembro 2 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-member-card">
+                        <div class="member-img-container">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop" alt="COO">
+                        </div>
+                        <div class="member-info">
+                            <h4>Elena Rojas</h4>
+                            <span>Directora de Operaciones</span>
+                            <div class="member-social">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Miembro 3 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-member-card">
+                        <div class="member-img-container">
+                            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1974&auto=format&fit=crop" alt="CTO">
+                        </div>
+                        <div class="member-info">
+                            <h4>Carlos Vílchez</h4>
+                            <span>Líder de Tecnología</span>
+                            <div class="member-social">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Miembro 4 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-member-card">
+                        <div class="member-img-container">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1961&auto=format&fit=crop" alt="Product Manager">
+                        </div>
+                        <div class="member-info">
+                            <h4>Sofía Castro</h4>
+                            <span>Gerente de Proyectos</span>
+                            <div class="member-social">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-behance"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 4: BANNER EQUIPO -->
+    <section class="team-banner reveal">
+        <div class="container">
+            <h2>Cultura de Excelencia</h2>
+            <p>No solo construimos software, creamos relaciones de confianza a través de un equipo comprometido con tus metas.</p>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 5: CTA FINAL -->
+    <section class="cta-section reveal">
+        <div class="container">
+            <h2 class="cta-title">¿Listo para evolucionar?</h2>
+            <a href="#" class="btn-cta-big">Consúltanos</a>
+            <span class="cta-subtitle">sin compromiso</span>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="text-white mb-4">Explorar</h5>
+                    <a href="index.html" class="footer-link">Inicio</a>
+                    <a href="servicios.html" class="footer-link">Servicios</a>
+                    <a href="quienes_somos.html" class="footer-link">Quiénes Somos</a>
+                    <a href="contacto.html" class="footer-link">Contacto</a>
+                </div>
+                <div class="col-md-4 mb-4 text-center">
+                    <h5 class="text-white mb-4">Conectemos</h5>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="#" class="btn btn-outline-light rounded-circle" style="width: 45px; height: 45px; display: flex; align-items: center; justify-content: center;"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="btn btn-outline-light rounded-circle" style="width: 45px; height: 45px; display: flex; align-items: center; justify-content: center;"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <p class="small opacity-50">© 2023 Business Control Hub.<br>Lima, Perú.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WIDGETS -->
+    <div class="chat-bubble">¿Hablamos de tu proyecto?</div>
+    <a href="#" class="wa-btn rounded-circle d-flex align-items-center justify-content-center text-white text-decoration-none">
+        <i class="fab fa-whatsapp fs-2"></i>
+    </a>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            document.querySelectorAll('.reveal').forEach(el => {
+                if(el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active');
+            });
+        });
+        window.dispatchEvent(new Event('scroll'));
+    </script>
+</body>
+</html>
