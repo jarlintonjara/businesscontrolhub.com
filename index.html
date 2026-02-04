@@ -507,10 +507,9 @@
     <!-- NAVBAR GLASS -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <!-- LOGO CORREGIDO: Construido con HTML para asegurar visualización -->
-            <a class="navbar-brand brand-logo-container" href="index.html">
-                <span class="brand-text">Business <span>Control</span> Hub</span>
-                <i class="fas fa-chart-pie brand-icon"></i>
+            <a class="navbar-brand" href="index.html">
+                <!-- El logo se carga desde la carpeta img -->
+                <img src="img/business-control-hub-logo.png" alt="Business Control Hub Logo">
             </a>
             
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -670,36 +669,43 @@
         <div class="container">
             <div class="text-center mb-5">
                 <h6 style="color: var(--primary-teal); letter-spacing: 2px; font-weight: 700;">CONFIANZA Y SOLIDEZ</h6>
-                <h2>Nuestros Aliados Estratégicos</h2>
+                <h2 class="mb-4">Nuestros Aliados Estratégicos</h2>
+                <div style="width: 80px; height: 4px; background: var(--primary-teal); margin: 0 auto;"></div>
             </div>
+            
             <div class="row g-4">
+                <!-- CLIENTES: GEOPETSA -->
                 <div class="col-md-4">
                     <div class="partner-box">
-                        <h5 class="fw-bold text-muted">CLIENTES</h5>
-                        <div class="position-relative w-100 text-center flex-grow-1 d-flex align-items-center justify-content-center">
-                            <button class="arrow-nav position-absolute start-0"><i class="fas fa-chevron-left"></i></button>
-                            <img src="https://via.placeholder.com/150x80?text=GEOPETSA" alt="Geopetsa">
-                            <button class="arrow-nav position-absolute end-0"><i class="fas fa-chevron-right"></i></button>
+                        <h5 class="fw-bold text-muted small mb-4">CLIENTES</h5>
+                        <div class="d-flex align-items-center justify-content-center flex-grow-1">
+                            <a href="https://geopetsa.com/" target="_blank">
+                                <img src="img/geopetsa.png" alt="Geopetsa">
+                            </a>
                         </div>
                     </div>
                 </div>
+                
+                <!-- ALIANZAS: AUGURE -->
                 <div class="col-md-4">
                     <div class="partner-box">
-                        <h5 class="fw-bold text-muted">ALIANZAS</h5>
-                        <div class="position-relative w-100 text-center flex-grow-1 d-flex align-items-center justify-content-center">
-                            <button class="arrow-nav position-absolute start-0"><i class="fas fa-chevron-left"></i></button>
-                            <img src="https://via.placeholder.com/150x80?text=AUGURE" alt="Augure">
-                            <button class="arrow-nav position-absolute end-0"><i class="fas fa-chevron-right"></i></button>
+                        <h5 class="fw-bold text-muted small mb-4">ALIANZAS</h5>
+                        <div class="d-flex align-items-center justify-content-center flex-grow-1">
+                            <a href="https://www.augure.cl/" target="_blank">
+                                <img src="img/augure.png" alt="Augure">
+                            </a>
                         </div>
                     </div>
                 </div>
+                
+                <!-- PARTNERS: QUICKBASE -->
                 <div class="col-md-4">
                     <div class="partner-box">
-                        <h5 class="fw-bold text-muted">PARTNERS</h5>
-                        <div class="position-relative w-100 text-center flex-grow-1 d-flex align-items-center justify-content-center">
-                            <button class="arrow-nav position-absolute start-0"><i class="fas fa-chevron-left"></i></button>
-                            <img src="https://via.placeholder.com/150x80?text=QUICKBASE" alt="Quickbase">
-                            <button class="arrow-nav position-absolute end-0"><i class="fas fa-chevron-right"></i></button>
+                        <h5 class="fw-bold text-muted small mb-4">PARTNERS</h5>
+                        <div class="d-flex align-items-center justify-content-center flex-grow-1">
+                            <a href="https://www.quickbase.com/" target="_blank">
+                                <img src="img/quickbase.png" alt="Quickbase">
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -769,8 +775,10 @@
                 </div>
                 <div class="col-md-4 text-md-end">
                     <div class="brand-logo-container justify-content-end opacity-50 mb-3" style="filter: brightness(0) invert(1);">
-                        <span class="brand-text text-white">Business <span class="text-white-50">Control</span> Hub</span>
-                        <i class="fas fa-chart-pie brand-icon text-white"></i>
+            <a class="navbar-brand" href="index.html">
+                <!-- El logo se carga desde la carpeta img -->
+                <img src="img/business-control-hub-logo.png" alt="Business Control Hub Logo">
+            </a>
                     </div>
                     <p class="mt-3 small opacity-50">© 2023 Business Control Hub.<br>Todos los derechos reservados.</p>
                 </div>
